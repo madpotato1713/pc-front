@@ -1,4 +1,4 @@
-import Navigation from "./Navigation";
+import Navigation from "@/components/layouts/Navigation";
 // import { Button } from '@/components/ui/button.tsx';
 // import {
 //     DropdownMenu,
