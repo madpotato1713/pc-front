@@ -11,7 +11,7 @@ import Navigation from '@/components/layouts/Navigation';
 // import { Container, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 
-function Layout() {
+const Layout = () => {
   return (
     <div className="flex min-h-screen">
       <Navigation />
@@ -46,6 +46,6 @@ function Layout() {
       </div>
     </div>
   );
-}
+};
 
 export default Layout;

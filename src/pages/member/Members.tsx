@@ -9,7 +9,7 @@ interface Member {
   email: string;
 }
 
-function Members() {
+const Members = () => {
   const [members, setMembers] = useState<Member[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -53,6 +53,6 @@ function Members() {
       </ul>
     </div>
   );
-}
+};
 
 export default Members;

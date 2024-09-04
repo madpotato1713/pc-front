@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import routes from '@/routes';
 
-function Navigation() {
+const Navigation = () => {
   return (
     <div className="hidden w-64 shrink-0 border-r bg-gray-100 dark:bg-gray-800 md:block">
       <div className="h-full overflow-y-auto p-4">
@@ -24,6 +24,6 @@ function Navigation() {
       </div>
     </div>
   );
-}
+};
 
 export default Navigation;
