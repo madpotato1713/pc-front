@@ -1,4 +1,4 @@
-import Navigation from "@/components/layouts/Navigation";
+import Navigation from '@/components/layouts/Navigation';
 // import { Button } from '@/components/ui/button.tsx';
 // import {
 //     DropdownMenu,
@@ -9,7 +9,7 @@ import Navigation from "@/components/layouts/Navigation";
 //     DropdownMenuTrigger,
 // } from '@/components/ui/dropdown-menu.tsx';
 // import { Container, Row } from 'react-bootstrap';
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 
 function Layout() {
   return (

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import "./Home.scss";
+import { useState } from 'react';
+import './Home.scss';
 
 function Home() {
   // const [count, setCount] = useState(0);

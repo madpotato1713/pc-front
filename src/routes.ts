@@ -1,5 +1,5 @@
-import Home from "@/pages/home/Home";
-import Members from "@/pages/member/Members";
+import Home from '@/pages/home/Home';
+import Members from '@/pages/member/Members';
 
 interface RouteConfig {
   path: string;
@@ -10,17 +10,17 @@ interface RouteConfig {
 
 const routes: RouteConfig[] = [
   {
-    path: "/",
+    path: '/',
     component: Home,
     exact: true,
-    title: "메인화면",
+    title: '메인화면'
   },
   {
-    path: "/members",
+    path: '/members',
     component: Members,
     exact: true,
-    title: "고객목록",
-  },
+    title: '고객목록'
+  }
 ];
 
 export default routes;

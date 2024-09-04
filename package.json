@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "start:dev": "vite --mode dev",
+    "start:prd": "vite --mode prd",
+    "build:dev": "tsc -b && vite build -- mode dev",
+    "build:prd": "tsc -b && vite build -- mode prd",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -24,6 +26,9 @@
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.2",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",

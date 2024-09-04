@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import routes from "@/routes";
+import { NavLink } from 'react-router-dom';
+import routes from '@/routes';
 
 function Navigation() {
   return (
@@ -12,13 +12,12 @@ function Navigation() {
               className={({ isActive }) =>
                 `flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                   isActive
-                    ? "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white"
-                    : "text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700"
+                    ? 'bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white'
+                    : 'text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700'
                 }`
               }
-              to={route.path}
-            >
-              {route.path === "/" ? "메인화면" : route.title}
+              to={route.path}>
+              {route.path === '/' ? '메인화면' : route.title}
             </NavLink>
           ))}
         </nav>

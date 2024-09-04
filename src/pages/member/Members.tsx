@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { getMemberList } from "@/service/MemberApi";
+import React, { useEffect, useState } from 'react';
+import { getMemberList } from '@/service/MemberAPI';
 
 // Member 타입 정의
 interface Member {
@@ -19,7 +19,7 @@ function Members() {
         setMembers(data);
       }
     } catch (error) {
-      console.error("Failed to fetch members:", error);
+      console.error('Failed to fetch members:', error);
     } finally {
       setLoading(false);
     }
@@ -42,7 +42,9 @@ function Members() {
       <h1 className="text-3xl font-bold mb-4">Members List</h1>
       <ul className="space-y-2">
         {members.map((member) => (
-          <li key={member.id} className="p-4 bg-white shadow rounded-lg">
+          <li
+            key={member.id}
+            className="p-4 bg-white shadow rounded-lg">
             <div className="text-lg font-medium">{member.name}</div>
             <div className="text-gray-600">{member.email}</div>
           </li>
