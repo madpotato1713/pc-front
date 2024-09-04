@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start:dev": "vite --mode dev",
-    "start:prd": "vite --mode prd",
+    "dev": "vite --mode dev",
+    "prd": "vite --mode prd",
     "build:dev": "tsc -b && vite build -- mode dev",
     "build:prd": "tsc -b && vite build -- mode prd",
     "lint": "eslint .",
