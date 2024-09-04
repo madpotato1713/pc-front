@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// import { getMemberList } from '@/service/MemberAPI';
 import { getMemberList } from '@/service/MemberAPI';
 
 // Member 타입 정의
