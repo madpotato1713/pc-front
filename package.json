@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite --mode dev",
     "prd": "vite --mode prd",
-    "build:dev": "tsc -b && vite build -- mode dev",
-    "build:prd": "tsc -b && vite build -- mode prd",
+    "build:dev": "tsc -b && vite build --mode dev",
+    "build:prd": "tsc -b && vite build --mode prd",
     "lint": "eslint .",
     "preview": "vite preview"
   },
