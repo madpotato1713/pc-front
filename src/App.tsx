@@ -1,13 +1,29 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import routes from '@/routes';
-import Layout from '@/components/layouts/Layout';
+import { Home } from '@/pages';
+import { LayoutExample } from '@/components/layouts';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
-          {routes.map((route, index) => (
+        <Route
+          path="/"
+          element={
+            <Navigate
+              replace
+              to="/home"
+            />
+          }
+        />
+        <Route
+          path="/home"
+          element={<Home />}
+        />
+        <Route
+          path="/examples"
+          element={<LayoutExample />}>
+          {routes.examples.map((route, index) => (
             <Route
               key={index}
               path={route.path}
@@ -15,6 +31,9 @@ function App() {
             />
           ))}
         </Route>
+        {/* <Route
+          path="/popuptest"
+          element={<PopupExample />}></Route> */}
       </Routes>
     </BrowserRouter>
   );

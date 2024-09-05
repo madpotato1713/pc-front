@@ -1,0 +1,100 @@
+$primary-color: #e74c3c; // 붉은 계열의 기본 색상
+$secondary-color: #c0392b; // 더 어두운 붉은 색상
+$text-color: #333;
+$background-color: #f4f4f4;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial, sans-serif';
+  background-color: $background-color;
+  color: $text-color;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: $primary-color;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+
+  .title {
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+
+  .nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+
+    li {
+      margin: 0 1rem;
+
+      .nav-button {
+        background: none;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+
+  .section {
+    margin-bottom: 2rem;
+
+    h2 {
+      color: $secondary-color;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .button {
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 0.25rem;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: $primary-color;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
