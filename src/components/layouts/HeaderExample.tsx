@@ -12,9 +12,12 @@ const HeaderExample = () => {
   };
 
   return (
-    <header className={cx('header')}>
-      <button onClick={gotToHome}>개발 샘플</button>
-    </header>
+    <div>
+      <header className={cx('header')}>
+        <button onClick={gotToHome}>개발 샘플</button>
+        <p>글자를 클릭하면 홈 화면으로 돌아갑니다.</p>
+      </header>
+    </div>
   );
 };
 

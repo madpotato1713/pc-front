@@ -3,6 +3,7 @@ import { getMemberList } from '@/service/ExamplesAPI';
 import { ButtonExample } from '@/components/atoms';
 import styles from './ExampleAPI.module.scss';
 import classNames from 'classnames/bind';
+import ExampleGetAPI from './ExampleGetAPI';
 
 const cx = classNames.bind(styles);
 
@@ -49,25 +50,37 @@ const ExampleAPI = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-4">Members List</h1>
+      <h1>Members List</h1>
       <div className={cx('content')}>
         <ButtonExample
           text="getAPI"
           onClick={memberList}
         />
-        <ul className="space-y-2">
-          {members.map((member) => (
-            <li
-              key={member.id}
-              className="p-4 bg-white shadow rounded-lg">
-              <div className="text-lg font-medium">{member.name}</div>
-              <div className="text-gray-600">{member.email}</div>
-            </li>
-          ))}
-        </ul>
+        <div className={cx('contents')}>
+          <ExampleGetAPI members={members} />
+          {/* <ul>
+            {members.map((member) => (
+              <li key={member.id}>
+                <div>{member.name}</div>
+                <div>{member.email}</div>
+              </li>
+            ))}
+          </ul> */}
+          {/* <ul className="space-y-2">
+            {members.map((member) => (
+              <li
+                key={member.id}
+                className="p-4 bg-white shadow rounded-lg">
+                <div className="text-lg font-medium">{member.name}</div>
+                <div className="text-gray-600">{member.email}</div>
+              </li>
+            ))}
+          </ul> */}
+        </div>
       </div>
     </div>
   );
 };
 
 export default ExampleAPI;
+export type { Member };

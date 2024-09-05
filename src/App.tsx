@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import routes from '@/routes';
 import { Home } from '@/pages';
 import { LayoutExample } from '@/components/layouts';
+import { PopupExample } from '@/components/atoms';
 
 function App() {
   return (
@@ -31,9 +32,9 @@ function App() {
             />
           ))}
         </Route>
-        {/* <Route
+        <Route
           path="/popuptest"
-          element={<PopupExample />}></Route> */}
+          element={<PopupExample />}></Route>
       </Routes>
     </BrowserRouter>
   );
