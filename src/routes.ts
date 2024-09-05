@@ -1,4 +1,9 @@
-import { ExamplesHome, ExampleAPI, ExamplePopup } from '@/pages/examples';
+import {
+  ExamplesHome,
+  ExampleAPI,
+  ExamplePopup,
+  ExamplePaging
+} from '@/pages/examples';
 // import { Home } from '@/pages';
 
 interface RouteConfig {
@@ -27,6 +32,12 @@ const routes: { examples: RouteConfig[] } = {
       component: ExamplePopup,
       exact: true,
       title: '팝업'
+    },
+    {
+      path: '/examples/paging',
+      component: ExamplePaging,
+      exact: true,
+      title: '페이징'
     }
   ]
 };
