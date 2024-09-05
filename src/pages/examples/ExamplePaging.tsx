@@ -62,12 +62,14 @@ const ExamplePaging = () => {
   const handleNextGroup = () => {
     if ((pageGroup + 1) * 5 < totalPages) {
       setPageGroup(pageGroup + 1);
+      setPage(pageGroup * 5 + 6); // 다음 그룹의 첫 페이지로 이동
     }
   };
 
   const handlePreviousGroup = () => {
     if (pageGroup > 0) {
       setPageGroup(pageGroup - 1);
+      setPage((pageGroup - 1) * 5 + 5); // 이전 그룹의 마지막 페이지로 이동
     }
   };
 
@@ -81,7 +83,7 @@ const ExamplePaging = () => {
         <button
           key={i}
           onClick={() => handlePageClick(i)}
-          className={i === page ? 'active' : ''}>
+          className={i === page ? cx('active') : cx('')}>
           {i}
         </button>
       );
@@ -92,7 +94,10 @@ const ExamplePaging = () => {
 
   return (
     <div className={cx('app')}>
-      <h1>Star Wars Characters</h1>
+      <div className={cx('header')}>
+        <h1>Star Wars Characters</h1>
+        <p>Total Count: {data?.count}</p>
+      </div>
       {loading ? (
         <div className={cx('loader')}></div>
       ) : (
