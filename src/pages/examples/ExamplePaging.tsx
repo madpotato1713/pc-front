@@ -38,15 +38,18 @@ const ExamplePaging = () => {
   const [page, setPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [pageGroup, setPageGroup] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const response = await fetch(
         `https://swapi.dev/api/people/?page=${page}`
       );
       const result: ApiResponse = await response.json();
       setData(result);
       setTotalPages(Math.ceil(result.count / 10)); // assuming each page has 10 results
+      setLoading(false);
     };
 
     fetchData();
@@ -90,49 +93,55 @@ const ExamplePaging = () => {
   return (
     <div className={cx('app')}>
       <h1>Star Wars Characters</h1>
-      <div className={cx('character-list')}>
-        {data?.results.map((person) => (
-          <div
-            key={person.url}
-            className={cx('character-card')}>
-            <h2>{person.name}</h2>
-            <p>
-              <strong>Height:</strong> {person.height}
-            </p>
-            <p>
-              <strong>Mass:</strong> {person.mass}
-            </p>
-            <p>
-              <strong>Hair Color:</strong> {person.hair_color}
-            </p>
-            <p>
-              <strong>Skin Color:</strong> {person.skin_color}
-            </p>
-            <p>
-              <strong>Eye Color:</strong> {person.eye_color}
-            </p>
-            <p>
-              <strong>Birth Year:</strong> {person.birth_year}
-            </p>
-            <p>
-              <strong>Gender:</strong> {person.gender}
-            </p>
+      {loading ? (
+        <div className={cx('loader')}></div>
+      ) : (
+        <>
+          <div className={cx('character-list')}>
+            {data?.results.map((person) => (
+              <div
+                key={person.url}
+                className={cx('character-card')}>
+                <h2>{person.name}</h2>
+                <p>
+                  <strong>Height:</strong> {person.height}
+                </p>
+                <p>
+                  <strong>Mass:</strong> {person.mass}
+                </p>
+                <p>
+                  <strong>Hair Color:</strong> {person.hair_color}
+                </p>
+                <p>
+                  <strong>Skin Color:</strong> {person.skin_color}
+                </p>
+                <p>
+                  <strong>Eye Color:</strong> {person.eye_color}
+                </p>
+                <p>
+                  <strong>Birth Year:</strong> {person.birth_year}
+                </p>
+                <p>
+                  <strong>Gender:</strong> {person.gender}
+                </p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className={cx('pagination')}>
-        <button
-          onClick={handlePreviousGroup}
-          disabled={pageGroup === 0}>
-          &lt;
-        </button>
-        {renderPageNumbers()}
-        <button
-          onClick={handleNextGroup}
-          disabled={(pageGroup + 1) * 5 >= totalPages}>
-          &gt;
-        </button>
-      </div>
+          <div className={cx('pagination')}>
+            <button
+              onClick={handlePreviousGroup}
+              disabled={pageGroup === 0}>
+              &lt;
+            </button>
+            {renderPageNumbers()}
+            <button
+              onClick={handleNextGroup}
+              disabled={(pageGroup + 1) * 5 >= totalPages}>
+              &gt;
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };
