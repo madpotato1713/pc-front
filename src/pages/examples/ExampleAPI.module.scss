@@ -1,10 +1,15 @@
 .content {
   display: flex;
-  flex-direction: row;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
 }
 
 .contents {
-  // width: 700px;
+  width: 250px;
   height: 300px;
-  overflow: auto;
+  overflow: scroll;
+  border: 2px solid black;
 }

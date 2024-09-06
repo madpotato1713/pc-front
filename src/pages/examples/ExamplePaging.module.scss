@@ -59,10 +59,10 @@
       cursor: pointer;
       transition: background-color 0.3s;
 
-      &:disabled {
-        background-color: #ccc;
-        cursor: not-allowed;
-      }
+      // &:disabled {
+      //   background-color: #ccc;
+      //   cursor: not-allowed;
+      // }
 
       &:hover:not(:disabled) {
         background-color: #0056b3;

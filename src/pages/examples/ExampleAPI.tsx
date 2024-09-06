@@ -18,7 +18,7 @@ const ExampleAPI = () => {
   const [members, setMembers] = useState<Member[]>([]);
   const [loading, setLoading] = useState(false); // 초기 로딩 상태를 false로 설정
 
-  const memberList = async () => {
+  const retrieveMemberList = async () => {
     setLoading(true); // 버튼 클릭 시 로딩 상태로 설정
     try {
       const data = await getMemberList();
@@ -36,6 +36,8 @@ const ExampleAPI = () => {
     }
   };
 
+  const updateMember = () => {};
+
   // useEffect(() => {
   //   memberList();
   // }, []);
@@ -50,32 +52,19 @@ const ExampleAPI = () => {
 
   return (
     <div>
-      <h1>Members List</h1>
       <div className={cx('content')}>
-        <ButtonExample
-          text="getAPI"
-          onClick={memberList}
-        />
+        <div className={cx('buttons')}>
+          <ButtonExample
+            text="getAPI"
+            onClick={retrieveMemberList}
+          />
+          <ButtonExample
+            text="postAPI"
+            onClick={updateMember}
+          />
+        </div>
         <div className={cx('contents')}>
           <ExampleGetAPI members={members} />
-          {/* <ul>
-            {members.map((member) => (
-              <li key={member.id}>
-                <div>{member.name}</div>
-                <div>{member.email}</div>
-              </li>
-            ))}
-          </ul> */}
-          {/* <ul className="space-y-2">
-            {members.map((member) => (
-              <li
-                key={member.id}
-                className="p-4 bg-white shadow rounded-lg">
-                <div className="text-lg font-medium">{member.name}</div>
-                <div className="text-gray-600">{member.email}</div>
-              </li>
-            ))}
-          </ul> */}
         </div>
       </div>
     </div>

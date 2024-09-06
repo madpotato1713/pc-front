@@ -73,6 +73,16 @@ const ExamplePaging = () => {
     }
   };
 
+  const handleFirstPage = () => {
+    setPage(1);
+    setPageGroup(0);
+  };
+
+  const handleLastPage = () => {
+    setPage(totalPages);
+    setPageGroup(Math.floor((totalPages - 1) / 5));
+  };
+
   const renderPageNumbers = () => {
     const startPage = pageGroup * 5 + 1;
     const endPage = Math.min(startPage + 4, totalPages);
@@ -83,7 +93,8 @@ const ExamplePaging = () => {
         <button
           key={i}
           onClick={() => handlePageClick(i)}
-          className={i === page ? cx('active') : cx('')}>
+          className={cx({ active: i === page })} // cx 함수 사용
+        >
           {i}
         </button>
       );
@@ -134,15 +145,29 @@ const ExamplePaging = () => {
           </div>
           <div className={cx('pagination')}>
             <button
+              onClick={handleFirstPage}
+              //   disabled={page === 1}
+            >
+              &lt;&lt;
+            </button>
+            <button
               onClick={handlePreviousGroup}
-              disabled={pageGroup === 0}>
+              //   disabled={pageGroup === 0}
+            >
               &lt;
             </button>
             {renderPageNumbers()}
             <button
               onClick={handleNextGroup}
-              disabled={(pageGroup + 1) * 5 >= totalPages}>
+              //   disabled={(pageGroup + 1) * 5 >= totalPages}
+            >
               &gt;
+            </button>
+            <button
+              onClick={handleLastPage}
+              //   disabled={page === totalPages}
+            >
+              &gt;&gt;
             </button>
           </div>
         </>
