@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { Member } from '@/pages/examples/ExampleAPI';
+import { MemberProps } from '@/pages/examples/model/MemberProps';
 
-export async function getMemberList() {
+export const getMemberList = async () => {
   try {
     const response = await axios.get(
       // 'https://jsonplaceholder.typicode.com/users'
@@ -12,9 +12,9 @@ export async function getMemberList() {
     console.error('Fetch error:', error);
     throw error;
   }
-}
+};
 
-export async function createMember(memberData: Member) {
+export const createMember = async (memberData: MemberProps) => {
   try {
     const response = await axios.post(
       'https://jsonplaceholder.typicode.com/users',
@@ -25,4 +25,4 @@ export async function createMember(memberData: Member) {
     console.error('Post error:', error);
     throw error;
   }
-}
+};

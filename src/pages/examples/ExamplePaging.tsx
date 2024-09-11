@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-// import { getMemberList } from '@/service/ExamplesAPI';
-// import { ButtonExample } from '@/components/atoms';
 import styles from './ExamplePaging.module.scss';
 import classNames from 'classnames/bind';
 

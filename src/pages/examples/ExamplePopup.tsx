@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ButtonExample from '@/components/atoms/ButtonExample';
 import ModalPopupExample from '@/components/atoms/ModalPopupExample';
-import { openPopup } from '@/utils/Utils';
+import { openPopup } from '@/utils/PopupUtil';
 
 const ExamplePopup = () => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);

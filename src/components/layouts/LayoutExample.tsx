@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 
 const LayoutExample = () => {
   return (
-    <div className={cx('layout')}>
+    <div className={cx('layout-box')}>
       <HeaderExample />
       <div className={cx('content')}>
         <div>

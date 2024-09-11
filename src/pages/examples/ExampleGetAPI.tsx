@@ -1,22 +1,36 @@
-import { Member } from './ExampleAPI';
+import { MemberProps } from './model/MemberProps';
+import styles from './ExampleGetApi.module.scss';
+import classNames from 'classnames/bind';
 
-interface ExampleGetAPIProps {
-  members: Member[];
+const cx = classNames.bind(styles);
+
+interface ExampleGetApiProps {
+  members: MemberProps[];
 }
 
-const ExampleGetAPI = (props: ExampleGetAPIProps) => {
+const ExampleGetApi = (props: ExampleGetApiProps) => {
   const { members } = props;
 
   return (
-    <ul>
-      {members.map((member) => (
-        <li key={member.id}>
-          <div>{member.name}</div>
-          <div>{member.email}</div>
-        </li>
-      ))}
-    </ul>
+    <div className={cx('table-container')}>
+      <table className={cx('data-table')}>
+        <thead>
+          <tr>
+            <th>이름</th>
+            <th>직업</th>
+          </tr>
+        </thead>
+        <tbody>
+          {members.map((member, index) => (
+            <tr key={index}>
+              <td>{member.name}</td>
+              <td>{member.position}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
-export default ExampleGetAPI;
+export default ExampleGetApi;

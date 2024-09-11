@@ -1,21 +1,15 @@
-import { useState, useEffect } from 'react';
-import { getMemberList } from '@/service/ExamplesAPI';
+import { useState } from 'react';
+import { getMemberList } from '@/service/ExamplesApi';
 import { ButtonExample } from '@/components/atoms';
-import styles from './ExampleAPI.module.scss';
+import styles from './ExampleApi.module.scss';
 import classNames from 'classnames/bind';
-import ExampleGetAPI from './ExampleGetAPI';
+import ExampleGetApi from './ExampleGetApi';
+import { MemberProps } from './model/MemberProps';
 
 const cx = classNames.bind(styles);
 
-// Member 타입 정의
-interface Member {
-  id: number;
-  name: string;
-  email: string;
-}
-
-const ExampleAPI = () => {
-  const [members, setMembers] = useState<Member[]>([]);
+const ExampleApi = () => {
+  const [members, setMembers] = useState<MemberProps[]>([]);
   const [loading, setLoading] = useState(false); // 초기 로딩 상태를 false로 설정
 
   const retrieveMemberList = async () => {
@@ -43,33 +37,26 @@ const ExampleAPI = () => {
   // }, []);
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="text-xl font-semibold">Loading...</div>
-      </div>
-    );
+    return <div className={cx('loader')}></div>;
   }
 
   return (
-    <div>
-      <div className={cx('content')}>
-        <div className={cx('buttons')}>
-          <ButtonExample
-            text="getAPI"
-            onClick={retrieveMemberList}
-          />
-          <ButtonExample
-            text="postAPI"
-            onClick={updateMember}
-          />
-        </div>
-        <div className={cx('contents')}>
-          <ExampleGetAPI members={members} />
-        </div>
+    <div className={cx('content')}>
+      <div className={cx('button-box')}>
+        <ButtonExample
+          text="getApi"
+          onClick={retrieveMemberList}
+        />
+        {/* <ButtonExample
+          text="postApi"
+          onClick={updateMember}
+        /> */}
+      </div>
+      <div className={cx('contents')}>
+        <ExampleGetApi members={members} />
       </div>
     </div>
   );
 };
 
-export default ExampleAPI;
-export type { Member };
+export default ExampleApi;

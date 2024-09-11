@@ -1,6 +1,6 @@
 import ExamplePopup from './ExamplePopup';
 import ExamplesHome from './ExamplesHome';
-import ExampleAPI from './ExampleAPI';
+import ExampleApi from './ExampleApi';
 import ExamplePaging from './ExamplePaging';
 
-export { ExamplePopup, ExamplesHome, ExampleAPI, ExamplePaging };
+export { ExamplePopup, ExamplesHome, ExampleApi, ExamplePaging };

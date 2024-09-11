@@ -1,0 +1,44 @@
+// TableComponent.scss
+.table-container {
+  width: 100%;
+  margin: 0 auto;
+  // padding: 20px;
+  box-sizing: border-box;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  // margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+  border: 1px solid black; // 테이블 전체 테두리 설정
+
+  th,
+  td {
+    padding: 12px 15px;
+    border: 1px solid black; // 각 셀의 테두리 설정
+  }
+
+  thead {
+    background-color: gray; // th 배경색을 회색으로 설정
+
+    th {
+      font-weight: bold;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #dddddd;
+
+      &:nth-of-type(even) {
+        background-color: #f9f9f9;
+      }
+
+      &:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+}
